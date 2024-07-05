@@ -7,5 +7,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('marketcore.urls')),
     path('item/',include('item.urls')),
-    
+    path('',include('dashboard.urls')),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
