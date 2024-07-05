@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'item',
     'marketcore',
+    'dashboard',
     'django_cleanup.apps.CleanupConfig'
 ]
 
