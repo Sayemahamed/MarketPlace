@@ -1,5 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404,redirect
+from django.db.models import Q
 from .models import Item
 from .forms import NewProductForm, EditProductForm
 
@@ -8,7 +9,7 @@ def search(request):
     query = request.GET.get('query', '')
     items = Item.objects.filter(is_sold=False)
     if query:
-        items = items.filter(name__icontains=query,is_sold=False)
+        items = items.filter(Q( name__icontains=query)|Q(description__icontains=query),is_sold=False)
     return render(request, 'item/search.html',{
         'items': items,
         'query': query
