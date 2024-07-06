@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'item',
     'marketcore',
     'dashboard',
+    'conversation',
     'django_cleanup.apps.CleanupConfig'
 ]
 

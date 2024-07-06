@@ -8,4 +8,5 @@ urlpatterns = [
     path('',include('marketcore.urls')),
     path('item/',include('item.urls')),
     path('',include('dashboard.urls')),
+    path('',include('conversation.urls')),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
