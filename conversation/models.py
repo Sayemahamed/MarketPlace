@@ -13,9 +13,9 @@ class Conversation(models.Model):
         return self.item.name
 
 class ConversationMessage(models.Model):
-    conversation = models.ForeignKey(Conversation, on_delete=models.CASCADE)
+    conversation = models.ForeignKey(Conversation,related_name='messages' ,on_delete=models.CASCADE)
     content = models.TextField()
-    created_by = models.ForeignKey(User, on_delete=models.CASCADE)
+    created_by = models.ForeignKey(User,related_name='created_messages', on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     class Meta:
         ordering = ['created_at']
