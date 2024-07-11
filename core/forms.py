@@ -14,10 +14,23 @@ class LoginForm(AuthenticationForm):
     }))
 
 class SignUpForm(UserCreationForm):
-    username = forms.CharField(max_length=30, help_text='Required. 30 characters or fewer. Letters, digits and @/./+/-/_ only.')
-    email = forms.EmailField(max_length=254, help_text='Required. Inform a valid email address.')
-    password1 = forms.CharField(label='Password', widget=forms.PasswordInput)
-    password2 = forms.CharField(label='Password confirmation', widget=forms.PasswordInput)
+    username=forms.CharField(widget=forms.TextInput(attrs={
+        'placeholder':'Your username',
+        'class':'w-full py-4 px-6 rounded-xl'
+    }))
+    email=forms.CharField(widget=forms.EmailInput(attrs={
+        'placeholder':'Your email address',
+        'class':'w-full py-4 px-6 rounded-xl'
+    }))
+    password1=forms.CharField(
+        widget=forms.PasswordInput(attrs={
+        'placeholder':'Your password',
+        'class':'w-full py-4 px-6 rounded-xl'
+    }))
+    password2=forms.CharField(widget=forms.PasswordInput(attrs={
+        'placeholder':'Repeat password',
+        'class':'w-full py-4 px-6 rounded-xl'
+    }))
     class Meta:
         model = User
         fields = ('username', 'email', 'password1', 'password2', )
